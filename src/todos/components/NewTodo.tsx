@@ -4,7 +4,8 @@ import { Todo } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
-import * as todosApi from "../helpers/todos";
+import { addTodo, deleteCompleted } from '../actions/todo-actions';
+// import * as todosApi from "../helpers/todos";
 
 
 export const NewTodo = () => {
@@ -18,14 +19,8 @@ export const NewTodo = () => {
         if (description.trim().length === 0) return
 
         //Crear TODO
-        todosApi.createTodo(description)
-        router.refresh()
+        await addTodo(description)
         setDescription('')
-    }
-
-    const deleteCompleted = async () => {
-        await todosApi.deleteCompletedTodos()
-        router.refresh()
     }
 
     return (
