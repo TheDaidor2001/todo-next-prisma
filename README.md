@@ -22,6 +22,11 @@ npx prisma generate
 
 
 
+## Nota: Usuario por defecto
+__usuario:__ test@google.com    
+__password__ 123456
+
+
 
 
 # Prisma commands
